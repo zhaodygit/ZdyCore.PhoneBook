@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using ZdyCore.PhoneBook.PhoneBooks.Persons;
+using ZdyCore.PhoneBook.PhoneBooks.PhoneNumber.Dtos;
 
 namespace ZdyCore.PhoneBook.PhoneBooks.Person.Dots
 {
@@ -22,5 +23,7 @@ namespace ZdyCore.PhoneBook.PhoneBooks.Person.Dots
         /// 地址信息
         /// </summary>
         public string Address { get; set; }
+
+        public List<PhoneNumberListDto> PhoneNumbers { get; set; }
     }
 }

@@ -16,5 +16,7 @@ namespace ZdyCore.PhoneBook.PhoneBooks.PhoneNumber.Dtos
         /// 类型
         /// </summary>
         public PhoneNumberType Type { get; set; }
+
+        
     }
 }

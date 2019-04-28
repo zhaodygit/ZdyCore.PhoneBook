@@ -66,7 +66,7 @@ namespace ZdyCore.PhoneBook.PhoneBooks.Person
 
         public async Task<PagedResultDto<PersonListDto>> GetPagedPersonAsync(GetPersonInput input)
         {
-            var query = _personRepository.GetAll();
+            var query = _personRepository.GetAllIncluding(a=>a.PhoneNumbers);
             var personCount = await query.CountAsync();
 
             var persons = await query.OrderBy(input.Sorting).PageBy(input).ToListAsync();
@@ -80,7 +80,7 @@ namespace ZdyCore.PhoneBook.PhoneBooks.Person
 
         public async Task<PersonListDto> GetPersonByIdAsync(NullableIdDto input)
         {
-            var person =  await _personRepository.GetAsync(input.Id.Value);
+            var person =  await _personRepository.GetAllIncluding(a=>a.PhoneNumbers).FirstOrDefaultAsync(p=>p.Id == input.Id.Value);
             return person.MapTo<PersonListDto>();   
         }
 
@@ -91,7 +91,8 @@ namespace ZdyCore.PhoneBook.PhoneBooks.Person
         }
         protected async Task CreatePersonAsync(PersonEditDto input)
         {
-            await  _personRepository.InsertAsync(input.MapTo<Persons.Person>());
+            var entity = input.MapTo<Persons.Person>();
+            await  _personRepository.InsertAsync(entity);
         }
 
         public async Task PrintHelloAsync(CreateOrUpdatePersonInput input)
@@ -113,7 +114,7 @@ namespace ZdyCore.PhoneBook.PhoneBooks.Person
             PersonEditDto personEditDto;
             if (input.Id.HasValue)
             {
-                var entity = await _personRepository.GetAsync(input.Id.Value);
+                var entity = await _personRepository.GetAllIncluding(a => a.PhoneNumbers).FirstOrDefaultAsync(p => p.Id == input.Id.Value);
                 personEditDto = entity.MapTo<PersonEditDto>();
             }
             else {

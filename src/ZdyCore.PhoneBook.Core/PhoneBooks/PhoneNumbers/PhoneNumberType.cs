@@ -12,14 +12,14 @@ namespace ZdyCore.PhoneBook.PhoneBooks.PhoneNumbers
         /// <summary>
         /// 移动电话
         /// </summary>
-        Mobile,
+        Mobile=1,
         /// <summary>
         /// 家庭
         /// </summary>
-        Home,
+        Home=2,
         /// <summary>
         /// 公司
         /// </summary>
-        Company
+        Company=3
     }
 }

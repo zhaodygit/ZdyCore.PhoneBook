@@ -47,6 +47,14 @@ namespace ZdyCore.PhoneBook.Web.Startup
                 )
                 .AddItem(
                     new MenuItemDefinition(
+                        PageNames.Persons,
+                        L("Persons"),
+                        url: "Persons?skipCount=0&maxResultCount=10",
+                        icon: "local_offer"
+                        )
+                    )
+                .AddItem(
+                    new MenuItemDefinition(
                         PageNames.About,
                         L("About"),
                         url: "About",

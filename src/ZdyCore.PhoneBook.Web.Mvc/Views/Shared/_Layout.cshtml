@@ -23,18 +23,14 @@
 }
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <link rel="shortcut icon" href="~/favicon.ico">
-
     <title>PhoneBook</title>
-
     <environment names="Development">
         <link href="~/fonts/roboto/roboto.css" rel="stylesheet" asp-append-version="true" />
         <link href="~/fonts/material-icons/materialicons.css" rel="stylesheet" asp-append-version="true" />
@@ -50,23 +46,18 @@
         <link href="~/css/themes/all-themes.css" rel="stylesheet" asp-append-version="true" />
         <link href="~/view-resources/Views/Shared/_Layout.css" rel="stylesheet" asp-append-version="true" />
     </environment>
-
     <environment names="Staging,Production">
         <link href="~/view-resources/Views/_Bundles/shared-layout.min.css" rel="stylesheet" asp-append-version="true" />
     </environment>
-
     <!-- View specific styles -->
     @RenderSection("styles", required: false)
-
     <script type="text/javascript">
         // This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
         var abp = abp || {};
         abp.appPath = '@ApplicationPath';
     </script>
-
 </head>
 <body class="@("theme-" + uiTheme)">
-
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -111,9 +102,7 @@
                     <!-- Call Search -->
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
-
                     @await Component.InvokeAsync(typeof(TopBarLanguageSwitchViewComponent))
-
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
@@ -122,10 +111,8 @@
     <!-- #Top Bar -->
     <section>
         <aside id="leftsidebar" class="sidebar">
-
             @await Component.InvokeAsync(typeof(SideBarUserAreaViewComponent))
             @await Component.InvokeAsync(typeof(SideBarNavViewComponent), new { activeMenu = ViewBag.CurrentPageName })
-
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
@@ -137,11 +124,8 @@
             </div>
             <!-- #Footer -->
         </aside>
-
         @await Component.InvokeAsync(typeof(RightSideBarViewComponent))
-
     </section>
-
     <section class="content">
         <div class="container-fluid">
             @if (AlertManager.Alerts.Any())
@@ -162,11 +146,9 @@
                     }
                 </div>
             }
-
             @RenderBody()
         </div>
     </section>
-
     <environment names="Development">
         <script src="~/lib/json2/json2.js" asp-append-version="true"></script>
         <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
@@ -191,31 +173,24 @@
         <script src="~/js/admin.js" asp-append-version="true"></script>
         <script src="~/js/main.js" asp-append-version="true"></script>
         <script src="~/view-resources/Views/Shared/_Layout.js" asp-append-version="true"></script>
-
         @if (CultureInfo.CurrentUICulture.Name != "en")
         {
             <script src="~/lib/jquery-validation/src/localization/messages_@Html.Raw(CultureInfo.CurrentUICulture.Name.Replace("-", "_") + ".js")" asp-append-version="true"></script>
         }
     </environment>
-
     <environment names="Staging,Production">
         <script src="~/view-resources/Views/_Bundles/shared-layout.min.js" asp-append-version="true"></script>
     </environment>
-
     <script>
     // Localizing momentjs
     moment.locale('@CultureInfo.CurrentUICulture.Name');
     </script>
-
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
     <script src="~/AbpServiceProxies/GetAll?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
     <script src="~/AbpScripts/GetScripts?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
-
     <script src="~/lib/signalr-client/signalr.min.js" asp-append-version="true"></script>
     <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.signalr-client.js" asp-append-version="true"></script>
-
     @WebResourceManager.RenderScripts()
-
     <!-- View specific scripts -->
     @RenderSection("scripts", required: false)
 </body>

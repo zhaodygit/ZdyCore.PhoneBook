@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using ZdyCore.PhoneBook.Configuration;
+using ZdyCore.PhoneBook;
 
 namespace ZdyCore.PhoneBook.Web.Startup
 {

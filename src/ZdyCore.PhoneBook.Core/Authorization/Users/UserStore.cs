@@ -17,9 +17,11 @@ namespace ZdyCore.PhoneBook.Authorization.Users
             IRepository<UserRole, long> userRoleRepository,
             IRepository<UserLogin, long> userLoginRepository,
             IRepository<UserClaim, long> userClaimRepository,
-            IRepository<UserPermissionSetting, long> userPermissionSettingRepository,
+            IRepository<UserPermissionSetting, long> userPermissionSettingRepository
+            ,
             IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository,
-            IRepository<OrganizationUnitRole, long> organizationUnitRoleRepository)
+            IRepository<OrganizationUnitRole, long> organizationUnitRoleRepository
+            )
             : base(
                 unitOfWorkManager,
                 userRepository,
@@ -28,9 +30,11 @@ namespace ZdyCore.PhoneBook.Authorization.Users
                 userRoleRepository,
                 userLoginRepository,
                 userClaimRepository,
-                userPermissionSettingRepository,
+                userPermissionSettingRepository
+                  ,
                 userOrganizationUnitRepository,
-                organizationUnitRoleRepository)
+                organizationUnitRoleRepository
+                )
         {
         }
     }

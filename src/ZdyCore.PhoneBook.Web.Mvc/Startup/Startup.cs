@@ -14,7 +14,6 @@ using ZdyCore.PhoneBook.Identity;
 using ZdyCore.PhoneBook.Web.Resources;
 using Abp.AspNetCore.SignalR.Hubs;
 
-
 namespace ZdyCore.PhoneBook.Web.Startup
 {
     public class Startup

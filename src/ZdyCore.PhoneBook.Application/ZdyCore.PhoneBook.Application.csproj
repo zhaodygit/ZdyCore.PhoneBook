@@ -13,4 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ZdyCore.PhoneBook.Core\ZdyCore.PhoneBook.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PhoneBooks\Dto\" />
+  </ItemGroup>
 </Project>
